@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankController : SingletonGeneric<TankController>
+
+
+public class TankController
 {
-    public Joystick joystick;
-    public float MoveSpeed = 2f;
-
-    private void FixedUpdate()
+    public TankController(TankModel tankModel, TankView tankPrefab)
     {
-        float XAxisMovement = joystick.Horizontal * MoveSpeed;
-        float ZAxisMovement = joystick.Vertical * MoveSpeed;
+        TankModel = tankModel;
+        TankView = GameObject.Instantiate<TankView>(tankPrefab);
+    }
 
-        transform.position += new Vector3(XAxisMovement, 0, ZAxisMovement);
+    public TankModel TankModel { get; }
+    public TankView TankView { get; }
+
+    public void HandleJoyStickInput(Joystick joystick)
+    {
+        float XAxisMovement = joystick.Horizontal * TankModel.Speed;
+        float ZAxisMovement = joystick.Vertical * TankModel.Speed;
+        // transform.position += new Vector3(XAxisMovement, 0, ZAxisMovement);
     }
 
 }
