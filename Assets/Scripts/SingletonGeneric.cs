@@ -18,13 +18,3 @@ public class SingletonGeneric<T> : MonoBehaviour where T: SingletonGeneric<T>
         }
     }
 }
-
-
-public class DerivedInheritence : SingletonGeneric<DerivedInheritence>
-{
-    protected override void Awake()
-    {
-        base.Awake();
-        //Custom Logic
-    }
-}
