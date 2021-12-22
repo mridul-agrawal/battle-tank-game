@@ -11,7 +11,7 @@ public class TankController
     private Joystick RightJoyStick;
     private float SpeedMultipier = 0.001f;
     private float RotationSpeedMultiplier = 0.01f;
-    private Camera camera;
+    public Camera camera;
 
     public TankController(TankModel tankModel, TankView tankPrefab)
     {
