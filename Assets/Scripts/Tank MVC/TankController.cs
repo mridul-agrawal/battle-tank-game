@@ -12,15 +12,16 @@ public class TankController
     private float SpeedMultipier = 0.001f;
     private float RotationSpeedMultiplier = 0.01f;
     public Camera camera;
+    private float CameraZoomOutSpeed = 0.0001f;
 
+
+    public TankModel TankModel { get; }
+    public TankView TankView { get; }
     public TankController(TankModel tankModel, TankView tankPrefab)
     {
         TankModel = tankModel;
         TankView = GameObject.Instantiate<TankView>(tankPrefab);
     }
-
-    public TankModel TankModel { get; }
-    public TankView TankView { get; }
 
     // Sets the reference to left & right Joysticks on the Canvas.
     public void SetJoyStickReferences(Joystick leftJoyStick, Joystick rightJoyStick)
@@ -60,4 +61,45 @@ public class TankController
         turretTransform.Rotate(desiredRotation, Space.Self);
     }
 
+    public void DestroyWorld()
+    {
+        ZoomOutCamera();
+        DestroyTanks();
+        DestoryEnv();
+    }
+
+    // A function to Zoom Out Camera Asynchronously when the player dies.
+    private async void ZoomOutCamera()
+    {
+        float lerp = 0.01f;
+        camera.transform.SetParent(null);
+        while (camera.orthographicSize < 50)
+        {
+            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 50, lerp);
+            lerp = lerp + CameraZoomOutSpeed;
+            await new WaitForSeconds(0.01f);
+        }
+    }
+
+    // Destroys all Game Objects Tagged as 'Tank' one by one using async await.
+    private async void DestroyTanks()
+    {
+        GameObject[] tanks = GameObject.FindGameObjectsWithTag("Tank");
+        for (int i = 0; i < tanks.Length; i++)
+        {
+            GameObject.Destroy(tanks[i]);
+            await new WaitForSeconds(0.1f);
+        }
+    }
+
+    // Destroys all Game Objects Tagged as 'Ground' one by one using async await.
+    private async void DestoryEnv()
+    {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Ground");
+        for (int i = 0; i < objects.Length; i++)
+        {
+            GameObject.Destroy(objects[i]);
+            await new WaitForSeconds(0.03f);
+        }
+    }
 }
