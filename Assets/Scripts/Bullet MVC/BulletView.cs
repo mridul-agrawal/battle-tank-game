@@ -7,5 +7,16 @@ using UnityEngine;
 /// </summary>
 public class BulletView : MonoBehaviour
 {
-    
+    BulletController bulletController;
+
+    public void Initialize(BulletController bulletController)
+    {
+        this.bulletController = bulletController;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        bulletController.InflictDamage(collision.gameObject);
+        Destroy(gameObject);
+    }
 }

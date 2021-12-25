@@ -102,4 +102,17 @@ public class TankController
             await new WaitForSeconds(0.03f);
         }
     }
+
+    public void ApplyDamage(int damage)
+    {
+        if (TankModel.Health - damage <= 0)
+        {
+            // death.
+            DestroyWorld();
+        }
+        else
+        {
+            TankModel.Health -= damage;
+        }
+    }
 }

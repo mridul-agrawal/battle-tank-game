@@ -27,7 +27,6 @@ public class TankService : SingletonGeneric<TankService>
     private void StartGame()
     {
         tankController = CreateNewPlayerTank();
-
     }
 
     // This Function Creates a new Player Tank MVC & also set all the required references and returns the Tank Controller of the same.

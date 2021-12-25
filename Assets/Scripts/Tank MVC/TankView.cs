@@ -31,7 +31,10 @@ public class TankView : MonoBehaviour
         tankController = controller;
     }
 
+    public void TakeDamage(int damage)
+    {
+        Debug.Log("Player Tank Taking Damage: " + damage, gameObject);
+        tankController.ApplyDamage(damage);
+    }
+
 }
-
-
-
