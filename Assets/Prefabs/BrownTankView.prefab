@@ -376,6 +376,8 @@ GameObject:
   - component: {fileID: 6179614332346594233}
   - component: {fileID: 7195536743548057099}
   - component: {fileID: 8086332929286315989}
+  - component: {fileID: 1041917568597860346}
+  - component: {fileID: -5004794766441354263}
   m_Layer: 0
   m_Name: BrownTankView
   m_TagString: Tank
@@ -410,6 +412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71e785e538e4c145b2fa225a3b6d5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingState: {fileID: 1041917568597860346}
+  patrollingState: {fileID: 1041917568597860346}
+  chasingState: {fileID: -5004794766441354263}
 --- !u!54 &6179614332346594233
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -452,3 +457,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2161579, y: 0.71629167, z: 1.580926}
   m_Center: {x: 0.01350975, y: 1.4928452, z: 0.087813795}
+--- !u!114 &1041917568597860346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722582486538730974}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4f09a6f6c31384f9f66326b0384ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5004794766441354263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722582486538730974}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caace2ef3a721d245a79b3355a23234b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
