@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6219003264830011473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 7874103658175049249}
   - component: {fileID: 7874103658174279283}
   - component: {fileID: 7874103658173279411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 980344121786858326}
   - component: {fileID: 6310156550052746929}
   - component: {fileID: 7586203121080858707}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlueTankView
   m_TagString: Tank
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 7874103658175049253}
   - component: {fileID: 7874103658174279291}
   - component: {fileID: 7874103658173279419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 7874103658175049255}
   - component: {fileID: 7874103658174279285}
   - component: {fileID: 7874103658173279413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 7874103658175049259}
   - component: {fileID: 7874103658174279281}
   - component: {fileID: 7874103658173279409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7874103658175049263}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankRenderers
   m_TagString: Untagged
   m_Icon: {fileID: 0}

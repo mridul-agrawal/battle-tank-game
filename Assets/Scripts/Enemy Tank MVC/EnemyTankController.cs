@@ -12,6 +12,12 @@ public class EnemyTankController
         TankView = GameObject.Instantiate<EnemyTankView>(tankPrefab);
     }
 
+    public void RangeCheck()
+    {
+        TankModel.InChaseRange = Physics.CheckSphere(TankView.transform.position, TankModel.ChaseRange, TankView.playerLayerMask);
+        TankModel.InAttackRange = Physics.CheckSphere(TankView.transform.position, TankModel.AttackRange, TankView.playerLayerMask);
+    }
+
     public void ApplyDamage(int damage)
     {
         if(TankModel.Health - damage <= 0)

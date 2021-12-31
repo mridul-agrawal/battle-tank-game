@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is responsible for handling the Tank Chasing logic when in Chasing State.
+/// </summary>
 public class TankChasingState : TankBaseState
 {
     public override void EnterState()
     {
         base.EnterState();
-        Debug.Log("Entering State: Patrolling");
     }
 
     public override void ExitState()
@@ -17,7 +19,22 @@ public class TankChasingState : TankBaseState
 
     protected override void Update()
     {
-        // Chasing Logic & change State Logic.
+        if (!tankModel.InChaseRange && !tankModel.InAttackRange) tankView.ChangeState(tankView.patrollingState);
+        else if (tankModel.InChaseRange && tankModel.InAttackRange) tankView.ChangeState(tankView.attackingState);
+
+        ChasePlayer();
+    }
+
+    // Sets the destination of teh navmesh agent to be the player position.
+    private void ChasePlayer()
+    {
+        if (!tankView.playerTransform)
+        {
+            tankView.ChangeState(tankView.patrollingState);
+            return;
+        }
+
+        tankView.navAgent.SetDestination(tankView.playerTransform.position);
     }
 
 }

@@ -7,11 +7,14 @@ using UnityEngine;
 /// </summary>
 public class TankController
 {
+    // JoyStick & Camera References.
     private Joystick LeftJoyStick;
     private Joystick RightJoyStick;
+    public Camera camera;
+
+    // Speed variables.
     private float SpeedMultipier = 0.001f;
     private float RotationSpeedMultiplier = 0.01f;
-    public Camera camera;
     private float CameraZoomOutSpeed = 0.0001f;
 
 
@@ -61,6 +64,7 @@ public class TankController
         turretTransform.Rotate(desiredRotation, Space.Self);
     }
 
+    // Calls some asynchronous methods to destroy the world gradually with a cool effect.
     public void DestroyWorld()
     {
         ZoomOutCamera();
@@ -103,6 +107,7 @@ public class TankController
         }
     }
 
+    // This method is called to inflict damage and reduce health of this tank.
     public void ApplyDamage(int damage)
     {
         if (TankModel.Health - damage <= 0)

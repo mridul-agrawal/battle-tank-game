@@ -8,15 +8,18 @@ using UnityEngine.UI;
 /// </summary>
 public class TankService : SingletonGeneric<TankService>
 {
+    // Scriptable Object references.
     public PlayerTankViewList playerTankViewList;
-    private TankController tankController;
     public TankScriptableObjectList TankList;
     public BulletScriptableObjectList BulletList;
+
+    // UI & Camera refernces.
     public Joystick LeftJoyStick;
     public Joystick RightJoyStick;
     public Button FireButton;
     public Camera playerCamera;
 
+    public TankController tankController;
 
 
     private void Start()
@@ -29,7 +32,7 @@ public class TankService : SingletonGeneric<TankService>
         tankController = CreateNewPlayerTank();
     }
 
-    // This Function Creates a new Player Tank MVC & also set all the required references and returns the Tank Controller of the same.
+    // This Function Creates a new Player Tank MVC & also set all the required references and returns the Tank Controller for the same.
     private TankController CreateNewPlayerTank()
     {
         TankModel tankModel = new TankModel(TankList.TankSOList[2]);

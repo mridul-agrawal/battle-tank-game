@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1197129384}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4253712570148841682}
   - component: {fileID: 4253712570149611656}
   - component: {fileID: 4253712570150611528}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4253712570148841686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankRenderers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 4253712570148841688}
   - component: {fileID: 4253712570149611658}
   - component: {fileID: 4253712570150611530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 6617115296786955695}
   - component: {fileID: 134117837069013064}
   - component: {fileID: 4542387162943766186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GreenTankView
   m_TagString: Tank
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &134117837069013064
 BoxCollider:
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 4253712570148841692}
   - component: {fileID: 4253712570149611650}
   - component: {fileID: 4253712570150611522}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 4253712570148841694}
   - component: {fileID: 4253712570149611660}
   - component: {fileID: 4253712570150611532}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,21 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyTankView : MonoBehaviour, IDamagable
 {
-    private EnemyTankController enemyTankController;
-    private TankBaseState currentState;
+    public Transform bulletSpawner;
+    public EnemyTankController enemyTankController;
+    [HideInInspector]
+    public TankBaseState currentState;
     [SerializeField]
     private TankBaseState startingState;
-    [SerializeField]
     public TankPatrollingState patrollingState;
-    [SerializeField]
     public TankChasingState chasingState;
+    public TankAttackingState attackingState;
+
+    public NavMeshAgent navAgent;
+    [HideInInspector]
+    public Transform playerTransform;
+    public LayerMask playerLayerMask, groundLayerMask;
+
 
     private void Start()
     {
         ChangeState(startingState);
+        if (TankService.Instance.tankController.TankView)
+        {
+            playerTransform = TankService.Instance.tankController.TankView.transform;
+        }
+        navAgent = GetComponent<NavMeshAgent>();
+    }
+
+    private void Update()
+    {
+        enemyTankController.RangeCheck();
     }
 
     public void SetTankControllerReference(EnemyTankController controller)
