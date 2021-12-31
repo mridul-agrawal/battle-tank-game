@@ -374,8 +374,8 @@ GameObject:
   - component: {fileID: 6722582486538297406}
   - component: {fileID: 7323867502225652200}
   m_Layer: 0
-  m_Name: EnemyTankView
-  m_TagString: Untagged
+  m_Name: BrownTankView
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

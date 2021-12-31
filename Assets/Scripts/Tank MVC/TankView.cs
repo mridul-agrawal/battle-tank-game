@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This Class is Attached to a Tank GameObject and is responsible for rendering and UI related work.
+/// This Class is Attached to a Player Tank GameObject and is responsible for rendering and UI related work.
 /// </summary>
 public class TankView : MonoBehaviour
 {
@@ -17,6 +17,14 @@ public class TankView : MonoBehaviour
         tankController.HandleRightJoyStickInput(Turret.transform);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            tankController.DestroyWorld();
+        }
+    }
+
     // Sets a reference to the corresponding TankController Script.
     public void SetTankControllerReference(TankController controller)
     {
@@ -24,3 +32,6 @@ public class TankView : MonoBehaviour
     }
 
 }
+
+
+
