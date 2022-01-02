@@ -120,4 +120,22 @@ public class TankController
             TankModel.Health -= damage;
         }
     }
+
+    public void SubscribeEvents()
+    {
+        EventHandler.Instance.OnBulletFired += FiredBullet;
+    }
+
+    public void UnsubscribeEvents()
+    {
+        EventHandler.Instance.OnBulletFired -= FiredBullet;
+    }
+
+    public void FiredBullet()
+    {
+        TankModel.BulletsFired++;
+        AchievementSystem.Instance.BulletsFiredCountCheck(TankModel.BulletsFired);
+    }
+
+
 }

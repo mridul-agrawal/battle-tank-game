@@ -11,6 +11,10 @@ public class TankView : MonoBehaviour, IDamagable
     public Transform BulletSpawner;
     private TankController tankController;
 
+    private void Start()
+    {
+        tankController.SubscribeEvents();
+    }
     private void FixedUpdate()
     {
         tankController.HandleLeftJoyStickInput(GetComponent<Rigidbody>());
@@ -36,6 +40,11 @@ public class TankView : MonoBehaviour, IDamagable
     {
         Debug.Log("Player Tank Taking Damage: " + damage, gameObject);
         tankController.ApplyDamage(damage);
+    }
+
+    private void OnDisable()
+    {
+        tankController.UnsubscribeEvents();
     }
 
 }
