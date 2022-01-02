@@ -10,11 +10,13 @@ public class AchievementSystem : SingletonGeneric<AchievementSystem>
     [SerializeField] private Text AchievementName;
     [SerializeField] private Text AchievementInfo;
     private int currentBulletFiredAchivementLevel;
+    private int currentEnemiesKilledAchievementLevel;
 
     void Start()
     {
         currentBulletFiredAchivementLevel = 0;
-        //EventHandler.Instance.OnBulletFired += BulletsFiredCountCheck;
+        currentEnemiesKilledAchievementLevel = 0;
+        EventHandler.Instance.OnEnemyDeath += EnemyDeathCountCheck;
     }
 
     public void BulletsFiredCountCheck(int bulletCount)
@@ -32,6 +34,21 @@ public class AchievementSystem : SingletonGeneric<AchievementSystem>
         }
     }
 
+    public void EnemyDeathCountCheck()
+    {
+        for(int i = 0; i < achievementSOList.enemiesKilledAchievementSO.achievements.Length; i++)
+        {
+            if (i != currentEnemiesKilledAchievementLevel) continue;
+
+            if(achievementSOList.enemiesKilledAchievementSO.achievements[i].requirement == TankService.Instance.tankController.TankModel.EnemiesKilled)
+            {
+                UnlockAchievement(achievementSOList.enemiesKilledAchievementSO.achievements[i].name, achievementSOList.enemiesKilledAchievementSO.achievements[i].info);
+                currentEnemiesKilledAchievementLevel = i + 1;
+            }
+            break;
+        }
+    }
+
     private async void UnlockAchievement(string AchievementName, string AchievementInfo)
     {
         this.AchievementName.text = AchievementName;
@@ -44,7 +61,7 @@ public class AchievementSystem : SingletonGeneric<AchievementSystem>
 
     private void OnDisable()
     {
-       // EventHandler.Instance.OnBulletFired -= BulletsFiredCountCheck;
+        EventHandler.Instance.OnEnemyDeath -= EnemyDeathCountCheck;
     }
 
 }
