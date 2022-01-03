@@ -18,7 +18,7 @@ public class TankModel
     }
 
     public float Speed { get; }
-    public int Health { get; }
+    public int Health { get; set; }
     public float RotationSpeed { get; }
     public string TankName { get; }
     public float TurretRotationSpeed { get; }

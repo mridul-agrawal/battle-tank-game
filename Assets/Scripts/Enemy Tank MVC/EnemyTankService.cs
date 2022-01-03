@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyTankService : MonoBehaviour
 {
     public EnemyTankView tankView;
-    public TankScriptableObjectList enemyTankList;
+    public EnemyTankScriptableObject enemyTankSO;
     public BulletScriptableObjectList bulletList;
 
     private void Start()
@@ -20,7 +20,7 @@ public class EnemyTankService : MonoBehaviour
 
     private EnemyTankController CreateEnemyTank()
     {
-        EnemyTankModel model = new EnemyTankModel(enemyTankList.TankSOList[0]);
+        EnemyTankModel model = new EnemyTankModel(enemyTankSO);
         EnemyTankController tank = new EnemyTankController(model, tankView);
         tank.TankView.SetTankControllerReference(tank);
         return tank;
