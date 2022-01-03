@@ -15,6 +15,8 @@ public class TankScriptableObject : ScriptableObject
     public int health;
     public float rotationSpeed;
     public float TurretRotationSpeed;
+    public int bulletsFired;
+    public int enemiesKilled;
 }
 
 

@@ -15,6 +15,8 @@ public class TankModel
         TankName = tankScriptableObject.TankName;
         TurretRotationSpeed = tankScriptableObject.TurretRotationSpeed;
         BulletType = tankScriptableObject.bulletType;
+        BulletsFired = tankScriptableObject.bulletsFired;
+        EnemiesKilled = tankScriptableObject.enemiesKilled;
     }
 
     public float Speed { get; }
@@ -23,4 +25,6 @@ public class TankModel
     public string TankName { get; }
     public float TurretRotationSpeed { get; }
     public BulletType BulletType { get; }
+    public int BulletsFired { get; set; }
+    public int EnemiesKilled { get; set; }
 }

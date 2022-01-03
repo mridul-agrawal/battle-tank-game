@@ -47,6 +47,7 @@ public class TankService : SingletonGeneric<TankService>
     public void Fire()
     {
         BulletService.Instance.FireBullet(tankController.TankView.BulletSpawner.transform, tankController.TankModel.BulletType);
+        EventHandler.Instance.InvokeOnBulletFired();
     }
 
 }

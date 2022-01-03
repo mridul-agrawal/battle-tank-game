@@ -23,6 +23,9 @@ public class EnemyTankController
         if(TankModel.Health - damage <= 0)
         {
             // death.
+            TankService.Instance.tankController.TankModel.EnemiesKilled++;
+            EventHandler.Instance.InvokeOnEnemyDeath();
+            GameObject.Destroy(TankView.gameObject);
         } else
         {
             TankModel.Health -= damage;
